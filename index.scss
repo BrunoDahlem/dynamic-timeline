@@ -62,10 +62,22 @@ body {
                 display: grid;
                 grid-template-rows: min-content min-content min-content;
                 gap: 20px;
-
+                
                 &:not(:last-child) {
                     margin-bottom: var(--row-gap);
                 }
+                &:nth-child(odd) {
+                    .header {
+                        --accent-color: #2f5596;
+                    }
+                }
+
+                &:nth-child(even) {
+                    .header {
+                        --accent-color: #f29733;
+                    }
+                }
+                    
                 &.editable {
                     cursor: text;
                     .header {
@@ -110,7 +122,7 @@ body {
 
                     display: flex;
                     align-items: center;
-                    flex-direction: row-reverse;
+                    flex-direction: row;
                     justify-content: space-between;
                     position: relative;
                     padding: 0 20px;
@@ -120,7 +132,7 @@ body {
                     .icons {
                         display: flex;
                         height: 100%;
-                        gap: 20px;
+                        gap: 5px;
                         justify-content: space-between;
                         align-items: center;
                         cursor: pointer;
@@ -226,7 +238,10 @@ body {
                         bottom: 0.25rem;
                     }
                 }
+                
             }
+
+            
 
             @media (min-width: 40rem) {
                 grid-template-columns: 1fr var(--line-w) 1fr;
@@ -238,19 +253,13 @@ body {
                 li {
                     &:nth-child(odd) {
                         grid-column: 1;
-
                         .header {
-                            --accent-color: #2f5596;
+                            flex-direction: row-reverse;
                         }
                     }
 
                     &:nth-child(even) {
                         grid-column: 3;
-
-                        .header {
-                            --accent-color: #f29733;
-                            flex-direction: row;
-                        }
                     }
 
                     &:nth-child(2) {
